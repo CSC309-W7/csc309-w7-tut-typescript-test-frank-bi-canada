@@ -9,9 +9,9 @@ export const apiResponse: unknown = [
 export function getUsersData(): User[] {
   if (!Array.isArray(apiResponse)) { return []; }
   apiResponse.forEach(user => {
-    // TODO: Still need to check if user.property is undefined or can be converted
-    if (typeof user.name !== 'string') user.age = String(user.name);
-    if (typeof user.age !== 'number') user.age = Number(user.age);
+    // TODO: Determine what output is appropriate
+    if (typeof user.name !== 'string') user.name = String(user?.name);
+    if (typeof user.age !== 'number') user.age = Number(user?.age);
   });
   return apiResponse;
 }
